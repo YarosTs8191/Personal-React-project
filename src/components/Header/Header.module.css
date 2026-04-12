@@ -18,10 +18,6 @@
   font-weight: 700;
 }
 
-.nav {
-  margin-bottom: 16px;
-}
-
 .navList {
   display: flex;
   flex-wrap: wrap;
@@ -145,24 +141,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-/* === MOBILE BUTTON === */
-.headerBtn {
-  display: none;
-  min-width: 160px;
-  padding: 12px 20px;
-  border-radius: 50px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  font-weight: 600;
-  text-align: center;
-  transition: background-color 250ms ease;
-}
-
-.headerBtn:hover,
-.headerBtn:focus {
-  background-color: var(--color-primary-dark);
 }
 
 /* === TABLET === */

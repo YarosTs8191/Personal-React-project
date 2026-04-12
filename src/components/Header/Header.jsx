@@ -16,7 +16,7 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.topBar}>
-          <a className={styles.logo} href="/">
+          <a className={styles.logo} href="#hero">
             GreenWest
           </a>
 
