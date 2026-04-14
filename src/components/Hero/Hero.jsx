@@ -4,7 +4,7 @@ import heroImg from "../../assets/images/portfolphot2.jpg";
 function Hero() {
   return (
     <section className={styles.hero} id="hero">
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <p className={styles.label}>Professional landscaping service</p>
@@ -25,7 +25,7 @@ function Hero() {
           <div className={styles.imageBox}>
             <img
               src={heroImg}
-              alt="Landscaping work example"
+              alt="Completed landscaping project with decorative spiral trees"
               className={styles.image}
             />
           </div>

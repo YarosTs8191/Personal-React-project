@@ -139,6 +139,11 @@
 
 /* === TABLET === */
 @media (min-width: 768px) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .burgerButton {
     display: none;
   }
@@ -154,21 +159,10 @@
   .navList {
     justify-content: center;
   }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 /* === DESKTOP === */
 @media (min-width: 1024px) {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
   .topBar {
     gap: 40px;
   }
