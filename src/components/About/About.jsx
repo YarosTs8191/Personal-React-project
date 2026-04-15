@@ -1,5 +1,5 @@
 import styles from "./About.module.css";
-import aboutImg from "../../assets/images/IMG_2768.jpg";
+import aboutImage from "../../assets/images/about.jpg";
 
 function About() {
   return (
@@ -33,7 +33,7 @@ function About() {
           </div>
 
           <div className={styles.imageBox}>
-            <img src={aboutImg} alt="Lawn service" className={styles.image} />
+            <img src={aboutImage} alt="Lawn service" className={styles.image} />
           </div>
         </div>
       </div>
