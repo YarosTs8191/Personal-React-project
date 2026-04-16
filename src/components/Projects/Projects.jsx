@@ -1,6 +1,16 @@
 import styles from "./Projects.module.css";
+import { ColumnsPhotoAlbum } from "react-photo-album";
+import "react-photo-album/columns.css";
+
+import { projects } from "../../data/projects";
+
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 function Projects() {
+  const [index, setIndex] = useState(-1);
+
   return (
     <section className={styles.projects} id="projects">
       <div className="container">
@@ -18,8 +28,19 @@ function Projects() {
         </div>
 
         <div className={styles.gallery}>
-          {/* project images will go here */}
+          <ColumnsPhotoAlbum
+            photos={projects}
+            columns={3}
+            onClick={({ index }) => setIndex(index)}
+          />
         </div>
+
+        <Lightbox
+          open={index >= 0}
+          close={() => setIndex(-1)}
+          index={index}
+          slides={projects}
+        />
       </div>
     </section>
   );
