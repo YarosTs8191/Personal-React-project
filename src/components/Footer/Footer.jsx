@@ -16,53 +16,55 @@ function Footer() {
             </p>
           </div>
 
-          <div className={styles.navBlock}>
-            <h3 className={styles.subtitle}>Navigation</h3>
+          <div className={styles.contentFuter}>
+            <div className={styles.navBlock}>
+              <h3 className={styles.subtitle}>Navigation</h3>
 
-            <ul className={styles.list}>
-              <li>
-                <a className={styles.link} href="#hero">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className={styles.link} href="#services">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a className={styles.link} href="#about">
-                  About
-                </a>
-              </li>
-              <li>
-                <a className={styles.link} href="#projects">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a className={styles.link} href="#contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+              <ul className={styles.list}>
+                <li>
+                  <a className={styles.link} href="#hero">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a className={styles.link} href="#services">
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a className={styles.link} href="#about">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a className={styles.link} href="#projects">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a className={styles.link} href="#contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div className={styles.contactBlock}>
-            <h3 className={styles.subtitle}>Contact</h3>
+            <div className={styles.contactBlock}>
+              <h3 className={styles.subtitle}>Contact</h3>
 
-            <ul className={styles.list}>
-              <li>
-                <a className={styles.link} href="tel:+1234567890">
-                  + (34) 624 82 1948
-                </a>
-              </li>
-              <li>
-                <a className={styles.link} href="mailto:hello@greenwest.com">
-                  greenwestukr@gmail.com
-                </a>
-              </li>
-            </ul>
+              <ul className={styles.list}>
+                <li>
+                  <a className={styles.link} href="tel:+1234567890">
+                    + (34) 624 82 1948
+                  </a>
+                </li>
+                <li>
+                  <a className={styles.link} href="mailto:hello@greenwest.com">
+                    greenwestukr@gmail.com
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
