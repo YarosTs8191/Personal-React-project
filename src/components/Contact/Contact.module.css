@@ -38,6 +38,30 @@
   color: var(--color-text);
 }
 
+.successMessage {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 16px 24px;
+  border-radius: 16px;
+  background-color: rgba(80, 215, 85, 0.559);
+  color: var(--color-text);
+
+  z-index: 1000;
+}
+
+.errorMessage {
+  font-size: 14px;
+  color: #c62828;
+}
+
+.input[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-color: #c62828;
+}
+
 .form {
   display: flex;
   flex-direction: column;
