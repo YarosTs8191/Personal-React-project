@@ -4,23 +4,27 @@ import styles from "./Contact.module.css";
 const initialErrors = {
   name: "",
   phone: "",
+  service: "",
   message: "",
 };
 
 function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
 
   const validateForm = (formData) => {
     const newErrors = {
       name: "",
       phone: "",
+      service: "",
       message: "",
     };
 
-    const name = formData.get("name").trim();
-    const phone = formData.get("phone").trim();
-    const message = formData.get("message").trim();
+    const name = (formData.get("name") || "").trim();
+    const phone = (formData.get("phone") || "").trim();
+    const service = (formData.get("service") || "").trim();
+    const message = (formData.get("message") || "").trim();
 
     if (!name) {
       newErrors.name = "Please enter your name.";
@@ -32,6 +36,10 @@ function Contact() {
       newErrors.phone = "Please enter a valid phone number.";
     }
 
+    if (!service) {
+      newErrors.service = "Please select a service.";
+    }
+
     if (!message) {
       newErrors.message = "Please enter your message.";
     } else if (message.length < 10) {
@@ -41,7 +49,7 @@ function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -49,22 +57,41 @@ function Contact() {
     const newErrors = validateForm(formData);
 
     setErrors(newErrors);
+    setIsSubmitted(false);
 
     const hasErrors = Object.values(newErrors).some((value) => value !== "");
 
     if (hasErrors) {
-      setIsSubmitted(false);
       return;
     }
 
-    form.reset();
-    setIsSubmitted(true);
+    try {
+      setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+      formData.append("access_key", "4dda7295-baf1-42fb-8062-1fd1d5cc1583");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        form.reset();
+        setErrors(initialErrors);
+        setIsSubmitted(true);
+
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        alert(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
   return (
     <section className={styles.contact} id="contact">
       <div className="container">
@@ -82,8 +109,12 @@ function Contact() {
             </p>
 
             {isSubmitted && (
-              <p className={styles.successMessage}>
-                ✅ Thank you! We will contact you within 24 hours.
+              <p
+                className={styles.successMessage}
+                role="status"
+                aria-live="polite"
+              >
+                Your request has been sent successfully.
               </p>
             )}
           </div>
@@ -124,6 +155,30 @@ function Contact() {
             </label>
 
             <label className={styles.field}>
+              <span className={styles.fieldLabel}>Service</span>
+              <select
+                className={styles.select}
+                name="service"
+                defaultValue=""
+                aria-invalid={Boolean(errors.service)}
+                aria-describedby={errors.service ? "service-error" : undefined}
+              >
+                <option value="" disabled>
+                  Select a service
+                </option>
+                <option value="lawn-care">Lawn care</option>
+                <option value="garden-design">Garden design</option>
+                <option value="tree-trimming">Tree trimming</option>
+                <option value="full-landscaping">Full landscaping</option>
+              </select>
+              {errors.service && (
+                <span id="service-error" className={styles.errorMessage}>
+                  {errors.service}
+                </span>
+              )}
+            </label>
+
+            <label className={styles.field}>
               <span className={styles.fieldLabel}>Message</span>
               <textarea
                 className={styles.textarea}
@@ -140,8 +195,12 @@ function Contact() {
               )}
             </label>
 
-            <button className={styles.button} type="submit">
-              Send
+            <button
+              className={styles.button}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Request a quote"}
             </button>
           </form>
         </div>
