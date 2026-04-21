@@ -14,43 +14,45 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.topBar}>
-          <a className={styles.logo} href="#hero">
-            GreenWest
+      <div className="container">
+        <div className={styles.headerContainer}>
+          <div className={styles.topBar}>
+            <a className={styles.logo} href="#hero">
+              GreenWest
+            </a>
+
+            <button
+              className={styles.burgerButton}
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={isOpen}
+              onClick={openMenu}
+            >
+              ☰
+            </button>
+          </div>
+
+          <nav className={styles.desktopNav} aria-label="Main navigation">
+            <ul className={styles.navList}>
+              <li className={styles.navItem}>
+                <a href="#hero">Home</a>
+              </li>
+              <li className={styles.navItem}>
+                <a href="#services">Services</a>
+              </li>
+              <li className={styles.navItem}>
+                <a href="#about">About</a>
+              </li>
+              <li className={styles.navItem}>
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a className={styles.headerBtn} href="#contact">
+            Get a quote
           </a>
-
-          <button
-            className={styles.burgerButton}
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={isOpen}
-            onClick={openMenu}
-          >
-            ☰
-          </button>
         </div>
-
-        <nav className={styles.desktopNav} aria-label="Main navigation">
-          <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <a href="#hero">Home</a>
-            </li>
-            <li className={styles.navItem}>
-              <a href="#services">Services</a>
-            </li>
-            <li className={styles.navItem}>
-              <a href="#about">About</a>
-            </li>
-            <li className={styles.navItem}>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-
-        <a className={styles.headerBtn} href="#contact">
-          Get a quote
-        </a>
       </div>
 
       {isOpen && (

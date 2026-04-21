@@ -4,12 +4,6 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.container {
-  width: 100%;
-  padding: 0 16px;
-  margin: 0 auto;
-}
-
 .logo {
   display: inline-block;
   margin: 0;
@@ -145,6 +139,11 @@
 
 /* === TABLET === */
 @media (min-width: 768px) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .burgerButton {
     display: none;
   }
@@ -160,21 +159,10 @@
   .navList {
     justify-content: center;
   }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 /* === DESKTOP === */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
+@media (min-width: 1024px) {
   .topBar {
     gap: 40px;
   }
