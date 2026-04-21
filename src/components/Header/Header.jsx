@@ -53,7 +53,7 @@ function Header() {
           </nav>
 
           <a className={styles.headerBtn} href="#contact">
-            Get a quote
+            Request a quote
           </a>
         </div>
       </div>
