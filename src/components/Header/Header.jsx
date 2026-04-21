@@ -44,6 +44,9 @@ function Header() {
                 <a href="#about">About</a>
               </li>
               <li className={styles.navItem}>
+                <a href="#projects">Projects</a>
+              </li>
+              <li className={styles.navItem}>
                 <a href="#contact">Contact</a>
               </li>
             </ul>
@@ -87,6 +90,12 @@ function Header() {
                     About
                   </a>
                 </li>
+                <li className={styles.navItem}>
+                  <a href="#projects" onClick={closeMenu}>
+                    Projects
+                  </a>
+                </li>
+
                 <li className={styles.navItem}>
                   <a href="#contact" onClick={closeMenu}>
                     Contact
