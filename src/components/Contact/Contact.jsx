@@ -104,7 +104,7 @@ function Contact() {
         setTimeout(() => {
           setIsSubmitted(false);
           setToast({ type: "", message: "" });
-        }, 3000);
+        }, 4000);
       } else {
         setToast({
           type: "error",

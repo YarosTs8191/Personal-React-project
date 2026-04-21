@@ -32,7 +32,7 @@
 }
 
 .text {
-  max-width: 60ch;
+  max-width: 40ch;
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-text);

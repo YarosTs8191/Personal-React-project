@@ -54,12 +54,20 @@ function Footer() {
 
               <ul className={styles.list}>
                 <li>
-                  <a className={styles.link} href="tel:+1234567890">
-                    + (34) 624 82 1948
+                  <a
+                    className={styles.link}
+                    href="tel:+34624821948"
+                    aria-label="Call GreenWest at plus 34 624 82 19 48"
+                  >
+                    +34 624 82 19 48
                   </a>
                 </li>
                 <li>
-                  <a className={styles.link} href="mailto:hello@greenwest.com">
+                  <a
+                    className={styles.link}
+                    href="mailto:greenwestukr@gmail.com"
+                    aria-label="Send email to GreenWest"
+                  >
                     greenwestukr@gmail.com
                   </a>
                 </li>

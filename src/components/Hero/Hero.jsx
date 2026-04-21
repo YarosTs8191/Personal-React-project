@@ -18,7 +18,7 @@ function Hero() {
             </p>
 
             <a className={styles.button} href="#contact">
-              Get a quote
+              Request a quote
             </a>
           </div>
 
