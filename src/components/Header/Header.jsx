@@ -1,16 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 
 function Header() {
+  // State to track mobile menu open/close status
+
   const [isOpen, setIsOpen] = useState(false);
 
-  const openMenu = () => {
-    setIsOpen(true);
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  // Close menu on Escape key press
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  // Prevent background scrolling when mobile menu is open
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <header className={styles.header}>
@@ -24,9 +58,10 @@ function Header() {
             <button
               className={styles.burgerButton}
               type="button"
-              aria-label="Open menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
-              onClick={openMenu}
+              aria-controls="mobile-menu"
+              onClick={toggleMenu}
             >
               ☰
             </button>
