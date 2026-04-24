@@ -2,6 +2,8 @@
 
 ## Live Demo
 
+![Preview](./preview.jpg)
+
 https://greenwest-landscaping.vercel.app
 
 ## Tech Stack
